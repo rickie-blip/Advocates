@@ -1,4 +1,3 @@
-import React from 'react';
 import { PRACTICE_AREAS } from '../../data/constants';
 import { BookingForm } from '../../types';
 

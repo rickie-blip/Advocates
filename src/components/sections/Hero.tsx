@@ -1,11 +1,6 @@
-import React from 'react';
-import { BookingForm } from '../../types';
+import coaImage from '../../assets/coa.png';
 
-interface HeroProps {
-  onSetBookingForm: (updater: (prev: BookingForm) => BookingForm) => void;
-}
-
-export default function Hero({ onSetBookingForm }: HeroProps) {
+export default function Hero() {
   return (
     <section id="home" className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-[#0B0F19] dark:via-[#0F141F] dark:to-[#171E2D] border-b border-gray-150 dark:border-slate-900 transition-colors">
       <div className="absolute top-10 right-0 w-96 h-96 bg-[#C59B27]/5 rounded-full blur-3xl pointer-events-none"></div>
@@ -53,26 +48,34 @@ export default function Hero({ onSetBookingForm }: HeroProps) {
             </div>
           </div>
 
-          <div className="lg:col-span-5 relative mt-8 lg:mt-0">
-            <div className="relative mx-auto max-w-md lg:max-w-none rounded-none overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 transform rotate-1 hover:rotate-0 transition-transform duration-500">
-              <img
-                src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1200&q=80"
-                alt="Elite courthouse pillar symbolizing legal strength and stability"
-                className="w-full h-[400px] object-cover"
-              />
-              <div className="absolute bottom-4 left-4 right-4 bg-white/95 dark:bg-slate-900/95 p-5 rounded-none shadow-lg backdrop-blur-sm border border-amber-500/20">
-                <div className="flex items-center space-x-1 mb-1 text-amber-500 text-xs">
-                  {[...Array(5)].map((_, i) => <span key={i}>★</span>)}
-                </div>
-                <p className="text-xs italic text-gray-700 dark:text-slate-300 font-serif">
-                  {"\"Mercy & Co Advocates defended our intellectual property assets during an aggressive corporate restructuring. Their tactical legal maneuverings saved our seed technology.\""}
-                </p>
-                <p className="text-[9px] font-sans font-black text-[#C59B27] uppercase mt-2 tracking-widest">— CEO, Summit Bio-Enterprises</p>
+          <div className="lg:col-span-5 relative mt-8 lg:mt-0 flex flex-col items-center justify-center">
+            {/* Kenyan Coat of Arms */}
+            <div className="relative flex flex-col items-center justify-center">
+              <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 flex items-center justify-center">
+                {/* Outer decorative ring */}
+                <div className="absolute inset-0 rounded-full border-4 border-[#C59B27]/40 animate-pulse"></div>
+                <div className="absolute inset-3 rounded-full border-2 border-[#C59B27]/20"></div>
+                {/* Coat of Arms image */}
+                <img
+                  src={coaImage}
+                  alt="Coat of Arms of Kenya"
+                  className="w-full h-full object-cover rounded-full drop-shadow-2xl relative z-10 p-4"
+                />
+              </div>
+              {/* Harambee ribbon */}
+              <div className="mt-4 bg-gradient-to-r from-[#8C6D1F] to-[#C59B27] px-8 py-2 border border-amber-300 shadow-lg">
+                <p className="text-white font-serif font-bold tracking-[0.3em] text-sm uppercase">Harambee</p>
               </div>
             </div>
-            <div className="absolute -top-6 -right-6 bg-gradient-to-tr from-[#8C6D1F] to-[#C59B27] text-white p-5 shadow-xl flex flex-col items-center justify-center transform rotate-12 hover:rotate-0 transition-transform duration-300 border border-amber-300">
-              <span className="text-[9px] font-sans font-black uppercase tracking-widest">AV-PREEMINENT</span>
-              <span className="text-sm font-serif font-semibold mt-1">Martindale Rated</span>
+            {/* Client quote */}
+            <div className="mt-6 bg-white/95 dark:bg-slate-900/95 p-5 shadow-lg border border-amber-500/20 max-w-sm">
+              <div className="flex items-center space-x-1 mb-1 text-amber-500 text-xs">
+                {[...Array(5)].map((_, i) => <span key={i}>★</span>)}
+              </div>
+              <p className="text-xs italic text-gray-700 dark:text-slate-300 font-serif">
+                {"\"Mercy & Co Advocates handled our land dispute with professionalism and deep knowledge of Kenyan law. Highly recommended.\""}
+              </p>
+              <p className="text-[9px] font-sans font-black text-[#C59B27] uppercase mt-2 tracking-widest">— Client, Baringo County</p>
             </div>
           </div>
         </div>

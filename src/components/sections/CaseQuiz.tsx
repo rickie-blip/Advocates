@@ -1,4 +1,3 @@
-import React from 'react';
 import { useQuiz } from '../../hooks/useQuiz';
 import { BookingForm } from '../../types';
 

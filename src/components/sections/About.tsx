@@ -1,4 +1,3 @@
-import React from 'react';
 
 const ETHOS_CARDS = [
   { icon: '🏛️', title: 'Unparalleled Preparation', text: 'We prepare every corporate dispute and defense outline as if it is bound for supreme appellate trial, rendering our positioning bulletproof.' },

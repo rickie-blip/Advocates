@@ -11,9 +11,7 @@ import Hero from './components/sections/Hero';
 import About from './components/sections/About';
 import PracticeAreas from './components/sections/PracticeAreas';
 import Attorneys from './components/sections/Attorneys';
-import Calculator from './components/sections/Calculator';
 import CaseQuiz from './components/sections/CaseQuiz';
-import ClientPortal from './components/sections/ClientPortal';
 import Booking from './components/sections/Booking';
 import FAQ from './components/sections/FAQ';
 import Contact from './components/sections/Contact';
@@ -50,13 +48,13 @@ export default function App() {
       <FloatingButtons />
       <Header darkTheme={darkTheme} onToggleTheme={() => setDarkTheme(!darkTheme)} />
       <main>
-        <Hero onSetBookingForm={setBookingForm} />
+        <Hero />
         <About />
         <PracticeAreas activeTab={activeTab} onSetActiveTab={setActiveTab} onSetBookingForm={setBookingForm} onTriggerToast={triggerToast} />
         <Attorneys onSetBookingForm={setBookingForm} onTriggerToast={triggerToast} />
-        <Calculator onSetBookingForm={setBookingForm} onTriggerToast={triggerToast} />
+        {/* <Calculator onSetBookingForm={setBookingForm} onTriggerToast={triggerToast} /> */}
         <CaseQuiz onSetBookingForm={setBookingForm} onTriggerToast={triggerToast} />
-        <ClientPortal onTriggerToast={triggerToast} />
+        {/* <ClientPortal onTriggerToast={triggerToast} /> */}
         <Booking bookingForm={bookingForm} onSetBookingForm={setBookingForm} onSubmit={handleBookingSubmit} />
         <FAQ onTriggerToast={triggerToast} />
         <Contact />

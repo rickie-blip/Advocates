@@ -38,43 +38,13 @@ export const PRACTICE_AREAS: PracticeArea[] = [
 export const ATTORNEYS: Attorney[] = [
   {
     id: 'attorney-1',
-    name: 'Marcus Vance',
-    role: 'Managing Partner',
-    education: 'Harvard Law School (JD, Magna Cum Laude)',
-    experience: '24+ Years Litigation',
-    specialties: ['Class Action Disputes', 'White Collar Defense', 'Antitrust'],
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=500&q=80',
-    bio: 'Former federal prosecutor who has successfully litigated over $1.2B in civil recoveries and structured defense arguments for Fortune 100 entities.'
-  },
-  {
-    id: 'attorney-2',
-    name: 'Victoria Sterling',
-    role: 'Senior Partner, Corporate Sector',
-    education: 'Yale Law School (JD), Wharton (MBA)',
-    experience: '18+ Years Corporate Advisory',
-    specialties: ['Mergers & Acquisitions', 'Venture Capital', 'IP Licensing'],
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80',
-    bio: 'Renowned structural strategist advising unicorn technology startups and handling high-value enterprise acquisitions globally.'
-  },
-  {
-    id: 'attorney-3',
-    name: 'Eleanor Sterling-Chase',
-    role: 'Partner, Private Client Group',
-    education: 'Stanford Law School (JD)',
-    experience: '15+ Years Trust Law',
-    specialties: ['Wealth Preservation', 'Offshore Trusts', 'Tax Planning'],
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=500&q=80',
-    bio: 'Trusted legal confidante to prominent multi-generational families, delivering ironclad estate frameworks and asset allocation protections.'
-  },
-  {
-    id: 'attorney-4',
-    name: 'David Vance, PhD',
-    role: 'Of Counsel, IP & Tech',
-    education: 'MIT (PhD in CS), Columbia Law School (JD)',
-    experience: '11+ Years Tech Patenting',
-    specialties: ['AI Regulatory Defense', 'Biotech Patenting', 'SaaS Licensing'],
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=500&q=80',
-    bio: 'Fuses high-level scientific expertise with advanced intellectual property architecture. Regularly testifies before federal commerce subcommittees.'
+    name: 'Mercy',
+    role: 'Lead Advocate',
+    education: '',
+    experience: '',
+    specialties: [],
+    image: '',
+    bio: ''
   }
 ];
 
