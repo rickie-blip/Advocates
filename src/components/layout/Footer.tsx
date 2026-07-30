@@ -38,10 +38,10 @@ export default function Footer({ onSetActiveTab }: FooterProps) {
         </div>
 
         <div className="space-y-4">
-          <h4 className="text-sm font-serif font-bold text-white tracking-wider">Strategic Portals</h4>
+          <h4 className="text-sm font-serif font-bold text-white tracking-wider">Resources</h4>
           <ul className="space-y-2.5 text-xs text-gray-500">
-            <li><a href="#client-portal" className="hover:text-[#C59B27] transition-colors">Client Secured Portal</a></li>
-            <li><a href="#calculator" className="hover:text-[#C59B27] transition-colors">Dispute Recoveries Estimator</a></li>
+            <li><a href="#insights" className="hover:text-[#C59B27] transition-colors">Legal Insights</a></li>
+            <li><a href="#insights/conveyancing" className="hover:text-[#C59B27] transition-colors">Conveyancing Guide</a></li>
             <li><a href="#priority-booking" className="hover:text-[#C59B27] transition-colors">Reserve Consultation</a></li>
             <li><a href="#about" className="hover:text-[#C59B27] transition-colors">Case Viability Auditing</a></li>
           </ul>

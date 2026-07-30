@@ -15,6 +15,7 @@ import CaseQuiz from './components/sections/CaseQuiz';
 import Booking from './components/sections/Booking';
 import FAQ from './components/sections/FAQ';
 import Contact from './components/sections/Contact';
+import { ConveyancingInsight, LegalInsightsIndex } from './components/sections/LegalInsights';
 
 const INITIAL_BOOKING: BookingForm = {
   clientName: '', clientEmail: '', clientPhone: '',
@@ -26,11 +27,29 @@ export default function App() {
   const [darkTheme, setDarkTheme] = useState(true);
   const [bookingForm, setBookingForm] = useState<BookingForm>(INITIAL_BOOKING);
   const { toast, triggerToast, dismissToast } = useToast();
+  const getView = () => {
+    if (window.location.hash === '#insights/conveyancing') return 'conveyancing';
+    if (window.location.hash.startsWith('#insights')) return 'insights';
+    return 'home';
+  };
+  const [view, setView] = useState(getView);
 
   useEffect(() => {
     document.documentElement.style.scrollBehavior = 'smooth';
     document.documentElement.classList.toggle('dark', darkTheme);
   }, [darkTheme]);
+
+  useEffect(() => {
+    const updateView = () => setView(getView());
+    window.addEventListener('hashchange', updateView);
+    return () => window.removeEventListener('hashchange', updateView);
+  }, []);
+
+  useEffect(() => {
+    if (view !== 'home' || !window.location.hash) return;
+    const target = document.getElementById(window.location.hash.slice(1));
+    if (target) requestAnimationFrame(() => target.scrollIntoView());
+  }, [view]);
 
   const handleBookingSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -48,16 +67,18 @@ export default function App() {
       <FloatingButtons />
       <Header darkTheme={darkTheme} onToggleTheme={() => setDarkTheme(!darkTheme)} />
       <main>
-        <Hero />
-        <About />
-        <PracticeAreas activeTab={activeTab} onSetActiveTab={setActiveTab} onSetBookingForm={setBookingForm} onTriggerToast={triggerToast} />
-        <Attorneys onSetBookingForm={setBookingForm} onTriggerToast={triggerToast} />
-        {/* <Calculator onSetBookingForm={setBookingForm} onTriggerToast={triggerToast} /> */}
-        <CaseQuiz onSetBookingForm={setBookingForm} onTriggerToast={triggerToast} />
-        {/* <ClientPortal onTriggerToast={triggerToast} /> */}
-        <Booking bookingForm={bookingForm} onSetBookingForm={setBookingForm} onSubmit={handleBookingSubmit} />
-        <FAQ onTriggerToast={triggerToast} />
-        <Contact />
+        {view === 'conveyancing' ? <ConveyancingInsight /> : view === 'insights' ? <LegalInsightsIndex /> : <>
+          <Hero />
+          <About />
+          <PracticeAreas activeTab={activeTab} onSetActiveTab={setActiveTab} onSetBookingForm={setBookingForm} onTriggerToast={triggerToast} />
+          <Attorneys onSetBookingForm={setBookingForm} onTriggerToast={triggerToast} />
+          {/* <Calculator onSetBookingForm={setBookingForm} onTriggerToast={triggerToast} /> */}
+          <CaseQuiz onSetBookingForm={setBookingForm} onTriggerToast={triggerToast} />
+          {/* <ClientPortal onTriggerToast={triggerToast} /> */}
+          <Booking bookingForm={bookingForm} onSetBookingForm={setBookingForm} onSubmit={handleBookingSubmit} />
+          <FAQ onTriggerToast={triggerToast} />
+          <Contact />
+        </>}
       </main>
       <Footer onSetActiveTab={setActiveTab} />
     </div>

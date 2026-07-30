@@ -22,6 +22,7 @@ export default function Header({ darkTheme, onToggleTheme }: HeaderProps) {
           <a href="#about" className="text-gray-600 dark:text-slate-300 hover:text-[#C59B27] dark:hover:text-[#C59B27] transition-colors">Our Ethos</a>
           <a href="#practice-areas" className="text-gray-600 dark:text-slate-300 hover:text-[#C59B27] dark:hover:text-[#C59B27] transition-colors">Specialties</a>
           <a href="#attorneys" className="text-gray-600 dark:text-slate-300 hover:text-[#C59B27] dark:hover:text-[#C59B27] transition-colors">Counsel</a>
+          <a href="#insights" className="text-gray-600 dark:text-slate-300 hover:text-[#C59B27] dark:hover:text-[#C59B27] transition-colors">Legal Insights</a>
           {/* <a href="#calculator" className="text-gray-600 dark:text-slate-300 hover:text-[#C59B27] dark:hover:text-[#C59B27] transition-colors">Estimator</a> */}
           {/* <a href="#client-portal" className="text-gray-600 dark:text-slate-300 hover:text-[#C59B27] dark:hover:text-[#C59B27] transition-colors">Secure Portal</a> */}
         </nav>
