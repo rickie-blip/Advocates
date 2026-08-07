@@ -15,7 +15,7 @@ import CaseQuiz from './components/sections/CaseQuiz';
 import Booking from './components/sections/Booking';
 import FAQ from './components/sections/FAQ';
 import Contact from './components/sections/Contact';
-import { ConveyancingInsight, LegalInsightsIndex } from './components/sections/LegalInsights';
+import { ConveyancingInsight, LegalInsightsIndex, SuccessionInsight } from './components/sections/LegalInsights';
 
 const INITIAL_BOOKING: BookingForm = {
   clientName: '', clientEmail: '', clientPhone: '',
@@ -29,6 +29,7 @@ export default function App() {
   const { toast, triggerToast, dismissToast } = useToast();
   const getView = () => {
     if (window.location.hash === '#insights/conveyancing') return 'conveyancing';
+    if (window.location.hash === '#insights/succession') return 'succession';
     if (window.location.hash.startsWith('#insights')) return 'insights';
     return 'home';
   };
@@ -67,7 +68,7 @@ export default function App() {
       <FloatingButtons />
       <Header darkTheme={darkTheme} onToggleTheme={() => setDarkTheme(!darkTheme)} />
       <main>
-        {view === 'conveyancing' ? <ConveyancingInsight /> : view === 'insights' ? <LegalInsightsIndex /> : <>
+        {view === 'conveyancing' ? <ConveyancingInsight /> : view === 'succession' ? <SuccessionInsight /> : view === 'insights' ? <LegalInsightsIndex /> : <>
           <Hero />
           <About />
           <PracticeAreas activeTab={activeTab} onSetActiveTab={setActiveTab} onSetBookingForm={setBookingForm} onTriggerToast={triggerToast} />
