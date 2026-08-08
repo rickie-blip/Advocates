@@ -43,7 +43,7 @@ export default function Footer({ onSetActiveTab }: FooterProps) {
             <li><a href="#insights" className="hover:text-[#C59B27] transition-colors">Legal Insights</a></li>
             <li><a href="#insights/conveyancing" className="hover:text-[#C59B27] transition-colors">Conveyancing Guide</a></li>
             <li><a href="#priority-booking" className="hover:text-[#C59B27] transition-colors">Reserve Consultation</a></li>
-            <li><a href="#about" className="hover:text-[#C59B27] transition-colors">Case Viability Auditing</a></li>
+            <li><a href="#case-quiz" className="hover:text-[#C59B27] transition-colors">Case Viability Auditing</a></li>
           </ul>
         </div>
 
@@ -65,7 +65,7 @@ export default function Footer({ onSetActiveTab }: FooterProps) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-slate-900 text-center text-xs text-gray-600 flex flex-col sm:flex-row justify-between items-center gap-4">
         <p>© {new Date().getFullYear()} Mercy & Co Advocates. Kabarnet Town, Baringo County, Kenya. All Rights Reserved. Fully Licensed Advocates.</p>
-        <div className="flex space-x-6">
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-3">
           <span className="hover:text-white cursor-pointer">Confidentiality Terms</span>
           <span className="hover:text-white cursor-pointer">Regulatory Disclaimers</span>
           <span className="hover:text-white cursor-pointer">Conflict Search Audit</span>

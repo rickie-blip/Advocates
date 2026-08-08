@@ -1,7 +1,7 @@
 
 export default function Contact() {
   return (
-    <section className="py-20 bg-white dark:bg-[#0B0F19] transition-colors border-b border-gray-150 dark:border-slate-900">
+    <section id="contact" className="py-12 sm:py-20 bg-white dark:bg-[#0B0F19] transition-colors border-b border-gray-150 dark:border-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-5 space-y-8 text-left">
@@ -31,7 +31,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="lg:col-span-7 h-[350px] lg:h-[450px] relative rounded-none overflow-hidden border border-gray-150 dark:border-slate-800 shadow-lg bg-gray-50 dark:bg-slate-900 flex flex-col items-center justify-center text-center p-6">
+          <div className="lg:col-span-7 h-[320px] sm:h-[350px] lg:h-[450px] relative rounded-none overflow-hidden border border-gray-150 dark:border-slate-800 shadow-lg bg-gray-50 dark:bg-slate-900 flex flex-col items-center justify-center text-center p-5 sm:p-6">
             <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#C59B27_1.5px,transparent_1.5px)] [background-size:20px_20px]"></div>
             <div className="relative z-10 space-y-4 max-w-sm font-sans">
               <span className="text-4xl">🗺️</span>
@@ -39,7 +39,7 @@ export default function Contact() {
               <p className="text-[11px] text-gray-500 dark:text-slate-400 leading-relaxed">
                 Conveniently located in Kabarnet Town, serving clients across Baringo County and the wider Rift Valley region.
               </p>
-              <div className="flex justify-center space-x-3 text-xs font-bold">
+              <div className="flex flex-col sm:flex-row justify-center gap-3 text-xs font-bold">
                 <a href="https://maps.google.com" target="_blank" rel="noreferrer"
                   className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 py-2.5 px-4 text-slate-800 dark:text-slate-200 shadow-sm">
                   Open in Google Maps

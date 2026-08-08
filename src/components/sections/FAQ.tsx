@@ -14,7 +14,7 @@ export default function FAQ({ onTriggerToast }: FAQProps) {
   };
 
   return (
-    <section className="py-20 bg-gray-50 dark:bg-[#0F141F] transition-colors border-b border-gray-150 dark:border-slate-900">
+    <section id="faq" className="py-20 bg-gray-50 dark:bg-[#0F141F] transition-colors border-b border-gray-150 dark:border-slate-900">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
           <span className="text-[10px] font-sans font-black uppercase text-amber-600 dark:text-[#C59B27] tracking-widest block">Legal Guidelines FAQ</span>

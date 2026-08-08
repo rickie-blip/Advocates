@@ -12,7 +12,7 @@ export default function CaseQuiz({ onSetBookingForm, onTriggerToast }: CaseQuizP
   const { quizStep, quizAnswers, quizResult, handleQuizAnswer, resetQuiz } = useQuiz();
 
   return (
-    <section className="py-20 bg-white dark:bg-[#0B0F19] transition-colors border-b border-gray-150 dark:border-slate-900">
+    <section id="case-quiz" className="py-20 bg-white dark:bg-[#0B0F19] transition-colors border-b border-gray-150 dark:border-slate-900">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="bg-gray-50 dark:bg-[#101625] border border-gray-150 dark:border-slate-850 p-6 sm:p-10 shadow-xl space-y-8">
           <div className="text-center space-y-3">

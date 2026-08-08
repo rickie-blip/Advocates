@@ -31,6 +31,8 @@ export default function App() {
     if (window.location.hash === '#insights/conveyancing') return 'conveyancing';
     if (window.location.hash === '#insights/succession') return 'succession';
     if (window.location.hash.startsWith('#insights')) return 'insights';
+    const page = window.location.hash.slice(1);
+    if (['about', 'practice-areas', 'attorneys', 'case-quiz', 'priority-booking', 'faq', 'contact'].includes(page)) return page;
     return 'home';
   };
   const [view, setView] = useState(getView);
@@ -45,12 +47,6 @@ export default function App() {
     window.addEventListener('hashchange', updateView);
     return () => window.removeEventListener('hashchange', updateView);
   }, []);
-
-  useEffect(() => {
-    if (view !== 'home' || !window.location.hash) return;
-    const target = document.getElementById(window.location.hash.slice(1));
-    if (target) requestAnimationFrame(() => target.scrollIntoView());
-  }, [view]);
 
   const handleBookingSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -68,18 +64,17 @@ export default function App() {
       <FloatingButtons />
       <Header darkTheme={darkTheme} onToggleTheme={() => setDarkTheme(!darkTheme)} />
       <main>
-        {view === 'conveyancing' ? <ConveyancingInsight /> : view === 'succession' ? <SuccessionInsight /> : view === 'insights' ? <LegalInsightsIndex /> : <>
-          <Hero />
-          <About />
-          <PracticeAreas activeTab={activeTab} onSetActiveTab={setActiveTab} onSetBookingForm={setBookingForm} onTriggerToast={triggerToast} />
-          <Attorneys onSetBookingForm={setBookingForm} onTriggerToast={triggerToast} />
-          {/* <Calculator onSetBookingForm={setBookingForm} onTriggerToast={triggerToast} /> */}
-          <CaseQuiz onSetBookingForm={setBookingForm} onTriggerToast={triggerToast} />
-          {/* <ClientPortal onTriggerToast={triggerToast} /> */}
-          <Booking bookingForm={bookingForm} onSetBookingForm={setBookingForm} onSubmit={handleBookingSubmit} />
-          <FAQ onTriggerToast={triggerToast} />
-          <Contact />
-        </>}
+        {view === 'conveyancing' ? <ConveyancingInsight />
+          : view === 'succession' ? <SuccessionInsight />
+          : view === 'insights' ? <LegalInsightsIndex />
+          : view === 'about' ? <About />
+          : view === 'practice-areas' ? <PracticeAreas activeTab={activeTab} onSetActiveTab={setActiveTab} onSetBookingForm={setBookingForm} onTriggerToast={triggerToast} />
+          : view === 'attorneys' ? <Attorneys onSetBookingForm={setBookingForm} onTriggerToast={triggerToast} />
+          : view === 'case-quiz' ? <CaseQuiz onSetBookingForm={setBookingForm} onTriggerToast={triggerToast} />
+          : view === 'priority-booking' ? <Booking bookingForm={bookingForm} onSetBookingForm={setBookingForm} onSubmit={handleBookingSubmit} />
+          : view === 'faq' ? <FAQ onTriggerToast={triggerToast} />
+          : view === 'contact' ? <Contact />
+          : <Hero />}
       </main>
       <Footer onSetActiveTab={setActiveTab} />
     </div>

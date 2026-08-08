@@ -27,10 +27,10 @@ export default function ClientPortal({ onTriggerToast }: ClientPortalProps) {
   };
 
   return (
-    <section id="client-portal" className="py-20 bg-gray-50 dark:bg-[#0F141F] transition-colors border-b border-gray-150 dark:border-slate-900">
+    <section id="client-portal" className="py-14 sm:py-20 bg-gray-50 dark:bg-[#0F141F] transition-colors border-b border-gray-150 dark:border-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-5 space-y-6 text-left">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="lg:col-span-5 space-y-5 sm:space-y-6 text-left">
             <span className="text-[10px] font-sans font-black uppercase text-amber-600 dark:text-[#C59B27] tracking-widest block">Client Transparency Portal</span>
             <h2 className="text-3xl sm:text-4xl font-serif text-slate-900 dark:text-slate-100 font-bold">Encrypted Strategic Collaboration Portal</h2>
             <div className="w-16 h-1 bg-[#C59B27] rounded-none"></div>
@@ -43,13 +43,13 @@ export default function ClientPortal({ onTriggerToast }: ClientPortalProps) {
               ))}
             </div>
             {!isLoggedIn && (
-              <button onClick={handleLogin} className="bg-slate-900 dark:bg-slate-800 hover:bg-[#C59B27] text-slate-200 text-xs font-sans font-bold uppercase tracking-wider py-3 px-6 border border-gray-700">
+              <button onClick={handleLogin} className="w-full sm:w-auto bg-slate-900 dark:bg-slate-800 hover:bg-[#C59B27] text-slate-200 text-xs font-sans font-bold uppercase tracking-wider py-3 px-6 border border-gray-700">
                 Simulate Secure Access Demo
               </button>
             )}
           </div>
 
-          <div className="lg:col-span-7 bg-white dark:bg-[#101625] border border-gray-150 dark:border-slate-850 p-6 sm:p-8 shadow-2xl">
+          <div className="lg:col-span-7 min-w-0 bg-white dark:bg-[#101625] border border-gray-150 dark:border-slate-850 p-4 sm:p-8 shadow-2xl">
             {!isLoggedIn ? (
               <div className="space-y-6">
                 <div className="text-center pb-4 border-b border-gray-150 dark:border-slate-800">
@@ -75,14 +75,14 @@ export default function ClientPortal({ onTriggerToast }: ClientPortalProps) {
               </div>
             ) : (
               <div className="space-y-6">
-                <div className="flex justify-between items-center pb-4 border-b border-gray-150 dark:border-slate-800 text-xs font-sans">
-                  <div>
+                <div className="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center pb-4 border-b border-gray-150 dark:border-slate-800 text-xs font-sans">
+                  <div className="min-w-0">
                     <p className="text-[10px] text-emerald-500 font-black uppercase tracking-widest flex items-center">
                       <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block mr-1.5 animate-ping"></span>Client Secured
                     </p>
-                    <p className="font-bold text-slate-900 dark:text-slate-100 mt-1">SUMMIT ACQUISITION DEALS — SECURED PORTAL</p>
+                    <p className="font-bold text-slate-900 dark:text-slate-100 mt-1 break-words">SUMMIT ACQUISITION DEALS — SECURED PORTAL</p>
                   </div>
-                  <button onClick={handleLogout} className="text-red-500 font-bold uppercase tracking-wider text-[10px] hover:underline">Exit Demo</button>
+                  <button onClick={handleLogout} className="self-start sm:self-auto text-red-500 font-bold uppercase tracking-wider text-[10px] hover:underline">Exit Demo</button>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 font-sans text-center">
@@ -102,16 +102,16 @@ export default function ClientPortal({ onTriggerToast }: ClientPortalProps) {
                   <p className="text-[9px] font-sans font-black text-gray-400 tracking-wider uppercase">Direct Line Secured Messages</p>
                   <div className="space-y-3 max-h-44 overflow-y-auto pr-2 text-xs font-sans">
                     {messages.map((msg, idx) => (
-                      <div key={idx} className={`p-3 max-w-sm rounded-none border ${msg.sender === 'You' ? 'bg-amber-500/10 text-slate-800 dark:text-slate-100 ml-auto border-amber-500/20' : 'bg-white dark:bg-slate-900 text-gray-600 dark:text-slate-300 border-gray-200 dark:border-slate-800'}`}>
+                      <div key={idx} className={`p-3 max-w-full sm:max-w-sm break-words rounded-none border ${msg.sender === 'You' ? 'bg-amber-500/10 text-slate-800 dark:text-slate-100 ml-auto border-amber-500/20' : 'bg-white dark:bg-slate-900 text-gray-600 dark:text-slate-300 border-gray-200 dark:border-slate-800'}`}>
                         <p className="text-[9px] font-black uppercase text-amber-600 dark:text-[#C59B27]">{msg.sender}</p>
                         <p className="mt-1 leading-relaxed">{msg.text}</p>
                         <span className="text-[8px] text-gray-400 text-right block mt-1">{msg.time}</span>
                       </div>
                     ))}
                   </div>
-                  <form onSubmit={handleSendMsg} className="flex gap-2 pt-2 border-t border-gray-150 dark:border-slate-800">
+                  <form onSubmit={handleSendMsg} className="flex flex-col sm:flex-row gap-2 pt-2 border-t border-gray-150 dark:border-slate-800">
                     <input type="text" placeholder="Inquire securely on this draft folder..." value={newMsg} onChange={(e) => setNewMsg(e.target.value)}
-                      className="flex-1 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 py-2.5 px-4 text-xs font-sans text-gray-800 dark:text-slate-100 rounded-none focus:outline-none" />
+                      className="min-w-0 flex-1 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 py-2.5 px-4 text-xs font-sans text-gray-800 dark:text-slate-100 rounded-none focus:outline-none" />
                     <button type="submit" className="bg-[#C59B27] text-white font-sans text-xs uppercase tracking-wider font-bold py-2.5 px-4">Send</button>
                   </form>
                 </div>

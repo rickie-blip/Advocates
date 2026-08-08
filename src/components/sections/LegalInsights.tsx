@@ -138,15 +138,17 @@ const successionSections = [
     list: ['Collect the assets.', 'Pay debts.', 'Distribute property according to the will.'],
     after: ['If there is a valid will but no executor has been appointed, or the appointed executor cannot act, the court issues Letters of Administration with the Will Annexed to another suitable person.', 'The administrator performs the same duties as an executor but must follow the terms of the will.']
   },
-  {
-    title: '7. Probate Forms',
-    paragraphs: ['To obtain a Grant of Probate, several court forms must be completed.', 'These forms are available from:'],
-    list: ['The Family Division of the High Court.', 'Magistrates’ Courts with succession jurisdiction.', 'The Kenya Judiciary registry.'],
-    after: ['The applicant normally provides:'],
-    secondList: ['Death certificate.', 'Original will.', 'Details of beneficiaries.', 'List of assets.', 'Petition for Grant of Probate.', 'Affidavits required by the court.'],
-    final: ['The forms are completed to:', 'Identify the deceased.', 'Confirm the validity of the will.', 'Identify the executor.', 'List beneficiaries.', 'Enable lawful administration of the estate.', 'After filing, the court examines the documents. If satisfied that the will is valid and the legal requirements have been met, it issues a Grant of Probate, giving the executor authority to administer the estate.']
-  }
 ];
+
+const legalEmphasis = /\b(Law of Succession Act|Grant of Probate|Letters of Administration with the Will Annexed|testate succession|testator|testatrix|executor|codicil|testamentary capacity|oral will|privileged will|section \d+(?:\(\d+\))?|sections \d+[–-]\d+|Article 170\(5\)|High Court|two or more competent witnesses|three months|18 years old|sound mind|fraud|coercion|undue influence|dependants)\b/i;
+
+function renderLegalText(text: string) {
+  return text.split(legalEmphasis).map((part, index) =>
+    legalEmphasis.test(part)
+      ? <strong key={`${part}-${index}`} className="font-bold text-slate-900 dark:text-white">{part}</strong>
+      : part
+  );
+}
 
 export function LegalInsightsIndex() {
   return (
@@ -243,43 +245,63 @@ export function ConveyancingInsight() {
 export function SuccessionInsight() {
   return (
     <main className="bg-gray-50 dark:bg-[#0F141F] py-12 sm:py-20 transition-colors">
-      <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <a href="#insights" className="inline-flex items-center gap-2 font-sans text-[10px] font-black uppercase tracking-widest text-amber-700 dark:text-[#C59B27] hover:underline">
           <span aria-hidden="true">←</span> All legal insights
         </a>
-        <header className="mt-8 pb-10 border-b border-gray-200 dark:border-slate-800">
-          <span className="text-[10px] font-sans font-black uppercase text-amber-600 dark:text-[#C59B27] tracking-widest">Succession Law</span>
-          <h1 className="mt-4 text-4xl sm:text-5xl font-serif leading-tight text-slate-900 dark:text-slate-100">Law of Succession and Inheritance Profile</h1>
-          <p className="mt-6 font-sans text-sm text-gray-600 dark:text-slate-300">By Bethuel Limo, Legal Assistant · LLB Graduate (awaiting graduation)</p>
+        <header className="mt-8 border-b border-gray-200 pb-10 dark:border-slate-800">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 font-sans text-[10px] font-black uppercase tracking-widest text-[#A97E10] dark:text-[#C59B27]">
+            <span>Succession Law</span>
+            <span className="h-1 w-1 rounded-full bg-current" aria-hidden="true" />
+            <span>Full Legal Profile</span>
+          </div>
+          <h1 className="mt-5 max-w-3xl text-4xl font-serif leading-[1.08] text-slate-900 sm:text-5xl dark:text-slate-100">Law of Succession and Inheritance</h1>
+          <p className="mt-5 max-w-2xl font-serif text-xl leading-8 text-slate-600 dark:text-slate-300">A detailed profile of testate succession, wills, probate and estate administration in Kenya.</p>
+          <div className="mt-7 flex flex-wrap items-center gap-x-3 gap-y-2 font-sans text-xs text-gray-600 dark:text-slate-400">
+            <span className="font-bold text-slate-800 dark:text-slate-200">Bethuel Kipchumba Limo</span>
+            <span aria-hidden="true">•</span>
+            <span>Legal Assistant</span>
+            <span aria-hidden="true">•</span>
+            <span>LLB Graduate (awaiting graduation)</span>
+          </div>
         </header>
 
-        <div className="mt-10 space-y-7 font-sans text-[15px] leading-8 text-gray-700 dark:text-slate-300">
-          <p className="text-lg leading-8">The Law of Succession: The Scope of the Law of Succession—testate succession.</p>
-          {successionSections.map((section) => (
-            <section key={section.title}>
-              <h2 className="mb-3 text-2xl font-serif font-bold text-slate-900 dark:text-slate-100">{section.title}</h2>
-              <div className="space-y-4">
-                {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+        <nav aria-label="Table of contents" className="mt-10 border border-amber-200 bg-amber-50/70 p-6 dark:border-amber-900/60 dark:bg-[#17130b] sm:p-7">
+          <p className="font-sans text-[10px] font-black uppercase tracking-widest text-[#A97E10] dark:text-[#C59B27]">In this profile</p>
+          <ol className="mt-4 grid gap-x-8 gap-y-2 font-sans text-sm leading-6 text-slate-700 sm:grid-cols-2 dark:text-slate-300">
+            {successionSections.map((section, index) => (
+              <li key={section.title}><a className="transition-colors hover:text-[#A97E10] dark:hover:text-[#C59B27]" href={`#succession-section-${index}`}>{section.title}</a></li>
+            ))}
+          </ol>
+        </nav>
+
+        <div className="mx-auto mt-12 max-w-3xl space-y-10 font-sans text-[15px] leading-8 text-gray-700 dark:text-slate-300">
+          <p className="border-l-4 border-[#C59B27] pl-5 font-serif text-xl leading-8 text-slate-800 dark:text-slate-100">The Law of Succession: The Scope of the Law of Succession—testate succession.</p>
+          {successionSections.map((section, index) => (
+            <section id={`succession-section-${index}`} key={section.title} className="scroll-mt-28 border-b border-gray-200 pb-10 last:border-0 dark:border-slate-800">
+              <h2 className="mb-5 text-2xl font-serif font-bold leading-tight text-slate-900 sm:text-3xl dark:text-slate-100">{section.title}</h2>
+              <div className="space-y-5">
+                {section.paragraphs.map((paragraph) => paragraph === 'Purpose of a Will' || paragraph === 'Legal Requirements for Validity' || paragraph === 'The testator must:' || paragraph === 'Important principles include:' || paragraph === 'The grant authorizes the executor to:' || paragraph === 'These forms are available from:' || paragraph === 'The applicant normally provides:' ? (
+                  <h3 key={paragraph} className="pt-1 font-sans text-sm font-black uppercase tracking-wider text-slate-900 dark:text-slate-100">{paragraph}</h3>
+                ) : paragraph.startsWith('NB:') ? (
+                  <p key={paragraph} className="border-l-4 border-[#C59B27] bg-amber-50/70 px-5 py-4 dark:bg-[#17130b]">{renderLegalText(paragraph)}</p>
+                ) : <p key={paragraph}>{renderLegalText(paragraph)}</p>)}
                 {section.list && (
-                  <ul className="list-disc space-y-2 pl-6 marker:text-[#C59B27]">
-                    {section.list.map((item) => <li key={item}>{item}</li>)}
+                  <ul className="space-y-3 border-l-2 border-amber-200 pl-5 dark:border-amber-900/70">
+                    {section.list.map((item) => <li key={item} className="pl-1 before:mr-3 before:text-[#C59B27] before:content-['✓']">{renderLegalText(item)}</li>)}
                   </ul>
                 )}
-                {section.after?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-                {section.secondList && (
-                  <ul className="list-disc space-y-2 pl-6 marker:text-[#C59B27]">
-                    {section.secondList.map((item) => <li key={item}>{item}</li>)}
-                  </ul>
-                )}
-                {section.final?.map((paragraph, index) => index > 0 && index < 6 ? (
-                  <ul key={paragraph} className="list-disc pl-6 marker:text-[#C59B27]"><li>{paragraph}</li></ul>
-                ) : <p key={paragraph}>{paragraph}</p>)}
+                {section.after?.map((paragraph) => paragraph.startsWith('In Banks v Goodfellow') ? (
+                  <blockquote key={paragraph} className="border-l-4 border-[#C59B27] bg-white px-6 py-5 font-serif text-lg italic leading-8 text-slate-700 shadow-sm dark:bg-[#101625] dark:text-slate-200">{renderLegalText(paragraph)}</blockquote>
+                ) : paragraph.startsWith('NB:') ? (
+                  <p key={paragraph} className="border-l-4 border-[#C59B27] bg-amber-50/70 px-5 py-4 dark:bg-[#17130b]">{renderLegalText(paragraph)}</p>
+                ) : <p key={paragraph}>{renderLegalText(paragraph)}</p>)}
               </div>
             </section>
           ))}
-          <aside className="mt-12 border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#101625] p-6 font-sans text-sm leading-7 text-gray-600 dark:text-slate-300">
-            <p className="font-bold uppercase tracking-widest text-[10px] text-[#C59B27] mb-2">Important notice</p>
-            <p>This article provides general information only and is not legal advice. The validity of a will and the administration of an estate depend on the particular facts. Seek advice from an advocate before preparing a will or taking action in an estate.</p>
+          <aside className="border border-gray-200 bg-white p-6 font-sans text-sm leading-7 text-gray-600 shadow-sm dark:border-slate-800 dark:bg-[#101625] dark:text-slate-300">
+            <p className="mb-3 text-[10px] font-black uppercase tracking-widest text-[#A97E10] dark:text-[#C59B27]">Important notice</p>
+            <p><strong className="text-slate-900 dark:text-white">This article provides general information only and is not legal advice.</strong> The validity of a will and the administration of an estate depend on the particular facts. Seek advice from an advocate before preparing a will or taking action in an estate.</p>
           </aside>
         </div>
       </article>

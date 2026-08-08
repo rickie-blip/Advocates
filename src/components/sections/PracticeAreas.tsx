@@ -12,9 +12,9 @@ export default function PracticeAreas({ activeTab, onSetActiveTab, onSetBookingF
   const active = PRACTICE_AREAS.find(pa => pa.id === activeTab)!;
 
   return (
-    <section id="practice-areas" className="py-20 bg-gray-50 dark:bg-[#0F141F] transition-colors border-b border-gray-150 dark:border-slate-900">
+    <section id="practice-areas" className="py-12 sm:py-20 bg-gray-50 dark:bg-[#0F141F] transition-colors border-b border-gray-150 dark:border-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-4">
           <span className="text-[10px] font-sans font-black uppercase text-amber-600 dark:text-[#C59B27] tracking-widest block">Core Expertise</span>
           <h2 className="text-3xl sm:text-4xl font-serif text-slate-900 dark:text-slate-100">Practices Anchored in Excellence</h2>
           <div className="w-16 h-1 bg-[#C59B27] mx-auto rounded-none"></div>
@@ -23,7 +23,7 @@ export default function PracticeAreas({ activeTab, onSetActiveTab, onSetBookingF
           </p>
         </div>
 
-        <div className="flex items-center justify-center space-x-2 sm:space-x-4 overflow-x-auto pb-4 mb-8 font-sans text-xs tracking-wider uppercase font-bold">
+        <div className="-mx-4 flex items-center justify-start sm:justify-center space-x-2 sm:space-x-4 overflow-x-auto px-4 pb-4 mb-8 font-sans text-xs tracking-wider uppercase font-bold [scrollbar-width:thin]">
           {PRACTICE_AREAS.map((pa) => (
             <button
               key={pa.id}
@@ -35,10 +35,10 @@ export default function PracticeAreas({ activeTab, onSetActiveTab, onSetBookingF
           ))}
         </div>
 
-        <div className="bg-white dark:bg-[#101625] border border-gray-150 dark:border-slate-850 p-8 sm:p-12 shadow-xl">
+        <div className="bg-white dark:bg-[#101625] border border-gray-150 dark:border-slate-850 p-5 sm:p-12 shadow-xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center space-x-3 text-3xl">
+              <div className="flex items-center space-x-3 text-2xl sm:text-3xl">
                 <span>{active.icon}</span>
                 <h3 className="font-serif font-bold text-slate-900 dark:text-slate-100">{active.title}</h3>
               </div>
